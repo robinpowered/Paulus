@@ -161,7 +161,7 @@ abstract class AbstractFileLoader implements IteratorAggregate
      * @access public
      * @return FilesystemIterator
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         // Create our bitwise flags
         $flags = FilesystemIterator::KEY_AS_PATHNAME
