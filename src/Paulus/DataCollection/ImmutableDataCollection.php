@@ -47,7 +47,7 @@ class ImmutableDataCollection extends DataCollection
      * @access public
      * @return void
      */
-    public function set($key, $value)
+    public function set($key, $value): static
     {
         throw new LogicException(self::IMMUTABLE_MESSAGE);
     }
@@ -61,7 +61,7 @@ class ImmutableDataCollection extends DataCollection
      * @access public
      * @return void
      */
-    public function replace(array $attributes = [])
+    public function replace(array $attributes = []): static
     {
         throw new LogicException(self::IMMUTABLE_MESSAGE);
     }
@@ -76,7 +76,7 @@ class ImmutableDataCollection extends DataCollection
      * @access public
      * @return ServiceLocator
      */
-    public function merge(array $attributes = [], $hard = false)
+    public function merge(array $attributes = [], $hard = false): static
     {
         throw new LogicException(self::IMMUTABLE_MESSAGE);
     }
@@ -90,7 +90,7 @@ class ImmutableDataCollection extends DataCollection
      * @access public
      * @return void
      */
-    public function remove($key)
+    public function remove($key): void
     {
         throw new LogicException(self::IMMUTABLE_MESSAGE);
     }

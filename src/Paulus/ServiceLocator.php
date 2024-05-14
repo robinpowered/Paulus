@@ -101,7 +101,7 @@ class ServiceLocator extends DataCollection
      * @access public
      * @return mixed
      */
-    public function get($name, $default = null)
+    public function get($name, $default = null): mixed
     {
         if ($this->isRegisteredService($name)) {
             return $this->attributes[$name]();
@@ -118,7 +118,7 @@ class ServiceLocator extends DataCollection
      * @access public
      * @return ServiceLocator
      */
-    public function set($name, $value)
+    public function set($name, $value): static
     {
         // Make sure we don't overwrite a service
         $this->validateRegisteredService($name);
@@ -133,7 +133,7 @@ class ServiceLocator extends DataCollection
      * @access public
      * @return ServiceLocator
      */
-    public function replace(array $attributes = [])
+    public function replace(array $attributes = []): static
     {
         // Clear our registered services
         $this->registered = [];
@@ -149,7 +149,7 @@ class ServiceLocator extends DataCollection
      * @access public
      * @return ServiceLocator
      */
-    public function merge(array $attributes = [], $hard = false)
+    public function merge(array $attributes = [], $hard = false): static
     {
         // Clear any registered services that are being overwritten
         $this->registered = array_diff($this->registered, array_keys($attributes));
