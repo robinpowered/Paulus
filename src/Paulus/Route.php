@@ -134,7 +134,7 @@ class Route extends KleinRoute
      */
     public function setIsProtected($is_protected)
     {
-        $this->is_protected = (boolean) $is_protected;
+        $this->is_protected = (bool) $is_protected;
 
         return $this;
     }
