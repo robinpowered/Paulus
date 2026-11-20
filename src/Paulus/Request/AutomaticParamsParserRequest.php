@@ -45,6 +45,11 @@ class AutomaticParamsParserRequest extends Request
             if (stripos($request->headers()->get('content-type'), 'application/x-www-form-urlencoded') !== false
                 && !$request->method('POST')) {
 
+                // PHP 8.6 throws a ValueError from `parse_str()` on NUL bytes; earlier versions truncated silently
+                if (str_contains($request->body(), "\0")) {
+                    throw new InvalidRequestSyntax();
+                }
+
                 // Parse the body into a params array
                 parse_str($request->body(), $params);
 
